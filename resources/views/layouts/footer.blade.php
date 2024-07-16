@@ -4,14 +4,14 @@
     @if (Auth::user()->usertype==1)
     <ul class="sidebar-nav" id="sidebar-nav">
       <li class="nav-item">
-        <a class="nav-link collapsed" href="{{ url('admin/dashboard') }}">
+        <a class="nav-link collapsed @if (Request::segment(2)=='dashboard') active @endif" href="{{ url('admin/dashboard') }}">
           <i class="bi bi-grid"></i>
           <span>Dashboard</span>
         </a>
       </li><!-- End Dashboard Nav -->
         
       <li class="nav-item">
-        <a class="nav-link collapsed" href="{{ url('admin/admin/list') }}">
+        <a class="nav-link collapsed @if (Request::segment(2)=='admin') active @endif" href="{{ url('admin/admin/list') }}">
           <i class="fas fa-user"></i>
           <span>Admin</span>
         </a>
@@ -28,7 +28,7 @@
     @elseif (Auth::user()->usertype==2)
     <ul class="sidebar-nav" id="sidebar-nav">
       <li class="nav-item">
-        <a class="nav-link collapsed" href="{{ url('teacher/dashboard') }}">
+        <a class="nav-link collapsed @if (Request::segment(2)=='dashboard') active @endif" href="{{ url('teacher/dashboard') }}">
           <i class="bi bi-grid"></i>
           <span>Dashboard</span>
         </a>
@@ -46,7 +46,7 @@
     @elseif (Auth::user()->usertype==3)
     <ul class="sidebar-nav" id="sidebar-nav">
       <li class="nav-item">
-        <a class="nav-link collapsed" href="{{ url('student/dashboard') }}">
+        <a class="nav-link collapsed @if (Request::segment(2)=='dashboard') active @endif" href="{{ url('student/dashboard') }}">
           <i class="bi bi-grid"></i>
           <span>Dashboard</span>
         </a>
@@ -63,7 +63,7 @@
     @elseif (Auth::user()->usertype==4)
     <ul class="sidebar-nav" id="sidebar-nav">
       <li class="nav-item">
-        <a class="nav-link collapsed" href="{{ url('parent/dashboard') }}">
+        <a class="nav-link collapsed @if (Request::segment(2)=='dashboard') active @endif" href="{{ url('parent/dashboard') }}">
           <i class="bi bi-grid"></i>
           <span>Dashboard</span>
         </a>
