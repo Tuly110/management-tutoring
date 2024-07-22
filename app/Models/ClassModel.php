@@ -11,19 +11,12 @@ class ClassModel extends Model
     protected $table = 'class';
     static public function getClass()
     {
-        $return = ClassModel::select('class.*', 'users.name as create_by_name ')
+        $return = ClassModel::select('class.*', 'users.name as create_by_name')
                     ->join('users', 'users.id', 'class.create_by')
                     ->orderBy('class.id', 'desc')
                     ->where('class.is_delete','=',0)
-                    ->paginate(1);
-                    // search by email
-        //             if(!empty( Request::get('query')))
-        //             {
-        //                 $return = $return->where('email', 'like', '%'.Request::get('query').'%');
-        //                 // $return_name = $return->where('name', 'like', '%'.Request::get('query').'%');
-        //                 // $return = $return->where('email', 'like', '%'.Request::get('query').'%');
-        //             }
-                    // Phan trang
+                    ->paginate(2);
+
                     
         return $return;
     }
