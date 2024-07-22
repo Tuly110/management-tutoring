@@ -18,8 +18,14 @@
       </li><!-- End Admin Page Nav -->
       <li class="nav-item">
         <a class="nav-link collapsed @if (Request::segment(2)=='class') active @endif" href="{{ url('admin/class/list') }}">
-          <i class="fas fa-user"></i>
+          <i class="fa-solid fa-school"></i>
           <span>Class</span>
+        </a>
+      </li><!-- End Admin Page Nav -->
+      <li class="nav-item">
+        <a class="nav-link collapsed @if (Request::segment(2)=='subject') active @endif" href="{{ url('admin/subject/list') }}">
+          <i class="fa-solid fa-book"></i>
+          <span>Subject</span>
         </a>
       </li><!-- End Admin Page Nav -->
       <li class="nav-item">
