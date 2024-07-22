@@ -16,20 +16,16 @@
               <form class="row g-3" method="POST" action="">
                 {{ csrf_field() }}
                 <div class="col-12">
-                  <label for="inputNanme4" class="form-label">Your Name</label>
+                  <label for="inputNanme4" class="form-label">Class Name</label>
                   <input type="text" class="form-control" value="{{old('name',  $getRecord->name)}}" name="name">
                 </div>
                 <div class="col-12">
-                  <label for="inputEmail4" class="form-label">Email</label>
-                  <input type="email" class="form-control" value="{{old('email',  $getRecord->email)}}" name="email">
-                  <div class="text-danger"><b>{{ $errors->first('email') }}</b></div>
-                </div>
-                <div class="col-12">
-                  <label for="inputPassword4" class="form-label">Password</label>
-                  <input type="text" class="form-control" id="inputPassword4" name="password">
-                  <p class="text-primary">Do you want change password so Please add new password! </p>
-                </div>
-
+                  <label for="inputNanme4" class="form-label">Status</label>
+                  <select class="form-control" name="status" >
+                      <option {{old('status',  $getRecord->status)==0 ? 'selected' : ''}} value="0">Active</option>
+                      <option {{old('status',  $getRecord->status)==1 ? 'selected' : ''}} value="1">InActive</option>
+                  </select>
+              </div>
                 <div class="text-center">
                   <button type="submit" class="btn btn-primary" name="add" >Update</button>
                 </div>

@@ -7,7 +7,7 @@
         <h1>Data Tables</h1>    
       </div><!-- End Page Title -->
       <div class="ms-auto p-2 bd-highlight" style="text-align: right">
-        <a href="{{ url('admin/admin/add') }}" class="btn btn-primary">Add new Admin</a>
+        <a href="{{ url('admin/class/add') }}" class="btn btn-primary">Add new Class</a>
       </div> 
     </div>
     
@@ -17,14 +17,15 @@
         <div class="col-lg-12">
           <div class="card">
             <div class="card-body">
-              <h5 class="card-title">Admin list</h5>
+              <h5 class="card-title">Class list</h5>
               <!-- Table with stripped rows -->
               <table class="table datatable">
                 <thead>
                   <tr>
                     <th scope="col">#</th>
                     <th scope="col">Name</th>
-                    <th scope="col">Email</th>
+                    <th scope="col">Status</th>
+                    <th scope="col">Create by</th>
                     <th scope="col">Create-at</th>
                     <th scope="col">Action</th>
                   </tr>
@@ -32,22 +33,31 @@
                 <tbody>
                   @foreach ($getRecord as $value )
                   <tr>    
-                      <th>{{ $value->id }}</th>
-                      <td>{{ $value->name }}</td>
-                      <td>{{ $value->email }}</td>
-                      <td>{{ $value->created_at }}</td>    
-                      <td>
-                        <a href="{{ url('admin/admin/edit/'.$value->id) }}" class="btn btn-primary">Edit</a>
-                        <a href="{{ url('admin/admin/delete/'.$value->id) }}" class="btn btn-danger">Delete</a>
-                      </td>   
-                  </tr>
+                    <th>{{ $value->id }}</th>
+                    <td>{{ $value->name }}</td>
+                    <td>
+                      @if ($value->status == 0)
+                        Active
+                      @else
+                        InActive
+                      @endif
+                    </td>
+                    <td>{{ $value->create_by }}</td>   
+                    <td>{{ $value->created_at }}</td> 
+                    <td>
+                      <a href="{{ url('admin/class/edit/'.$value->id) }}" class="btn btn-primary">Edit</a>
+                      <a href="{{ url('admin/class/delete/'.$value->id) }}" class="btn btn-danger">Delete</a>
+                    </td>   
+                </tr>
                   @endforeach 
                 </tbody>
               </table>
               {{-- Phan trang --}}
               <div style="padding: 10px;" class="d-flex justify-content-center">
+                {{-- Trang --}}
                 {!! $getRecord->appends(\Request::except('page'))->links() !!}
               </div>
+             
               <!-- End Table with stripped rows -->
                
             </div>
