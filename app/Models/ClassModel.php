@@ -15,9 +15,21 @@ class ClassModel extends Model
                     ->join('users', 'users.id', 'class.create_by')
                     ->orderBy('class.id', 'desc')
                     ->where('class.is_delete','=',0)
-                    ->paginate(2);
+                    ->paginate(20);
 
                     
+        return $return;
+    }
+    static public function getClass_assign()
+    {
+        $return = ClassModel::select('class.*')
+                    ->join('users', 'users.id', 'class.create_by')
+                    
+                    ->where('class.is_delete','=',0)
+                    ->where('class.status', '=',0 )
+                    ->orderBy('class.name', 'asc')
+                    ->get();     
+
         return $return;
     }
     static public function getSingle($id)
