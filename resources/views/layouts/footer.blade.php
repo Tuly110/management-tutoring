@@ -29,6 +29,12 @@
         </a>
       </li><!-- End Admin Page Nav -->
       <li class="nav-item">
+        <a class="nav-link collapsed @if (Request::segment(2)=='assign_subject') active @endif" href="{{ url('admin/assign_subject/list') }}">
+          <i class="fa-solid fa-book"></i>
+          <span>Assign Subject</span>
+        </a>
+      </li><!-- End Admin Page Nav -->
+      <li class="nav-item">
         <a class="nav-link collapsed" href="pages-error-404.html">
           <i class="bi bi-dash-circle"></i>
           <span>Error 404</span>
