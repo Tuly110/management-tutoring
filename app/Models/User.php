@@ -45,6 +45,7 @@ class User extends Authenticatable
         'email_verified_at' => 'datetime',
         'password' => 'hashed',
     ];
+    // GET ADMIN
     static public function getAdmin()
     {
         $return = self::select('users.*')
@@ -63,11 +64,22 @@ class User extends Authenticatable
         return $return;
     }
 
+    // GET STUDENT
+    static public function getStudent()
+    {
+        $return = self::select('users.*')
+        ->where('users.usertype','=',3)
+        ->where('users.is_delete','=',0);
+        $return = $return ->orderBy('users.id', 'desc')
+        // Phan trang
+        ->paginate(2);
+    return $return;
+    }
+
     static public function getSingle($id)
     {
         return self::find($id);
     }
-
 
     static public function getEmailSingle($email)
     {

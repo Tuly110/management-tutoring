@@ -3,7 +3,7 @@
 <main id="main" class="main">
 
     <div class="pagetitle">
-      <h1>Edit Subject assign</h1>
+      <h1>Edit Single</h1>
     </div><!-- End Page Title -->
     <section class="section">
       <div class="row">
@@ -25,22 +25,13 @@
                     </select>
                 </div>
                 <div class="col-12">
-                    <label for="inputNanme4" class="form-label p-2">Subject Name</label>
-                      @foreach ($getSubject_assign as $subject)
-                        @php
-                            $checked="";
-                        @endphp
-                        @foreach ($getAssignSubjectID as $subjectAssign)
-                          @if ($subjectAssign->subject_id == $subject->id)
-                            @php
-                              $checked="checked";
-                            @endphp
-                          @endif
-                        @endforeach
-                          <div>
-                              <input {{ $checked }} type="checkbox" value="{{ $subject->id }}" name="subject_id[]">{{ $subject->name }}</input> 
-                          </div>
-                      @endforeach    
+                    <label for="inputNanme4" class="form-label">Subject Name</label>
+                    <select class="form-control" name="subject_id" >
+                        <option value="0">Select Subject</option>
+                        @foreach ($getSubject_assign as $subject )
+                            <option {{($getRecord->subject_id==$subject->id) ? 'selected' : ''}} value="{{ $subject->id }}">{{ $subject->name }}</option>
+                        @endforeach    
+                    </select>
                 </div>
                 <div class="col-12">
                   <label for="inputNanme4" class="form-label">Status</label>
