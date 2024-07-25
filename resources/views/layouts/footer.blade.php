@@ -17,6 +17,12 @@
         </a>
       </li><!-- End Admin Page Nav -->
       <li class="nav-item">
+        <a class="nav-link collapsed @if (Request::segment(2)=='student') active @endif" href="{{ url('admin/student/list') }}">
+          <i class="fas fa-user"></i>
+          <span>Student</span>
+        </a>
+      </li><!-- End Admin Page Nav -->
+      <li class="nav-item">
         <a class="nav-link collapsed @if (Request::segment(2)=='class') active @endif" href="{{ url('admin/class/list') }}">
           <i class="fa-solid fa-school"></i>
           <span>Class</span>
@@ -32,6 +38,12 @@
         <a class="nav-link collapsed @if (Request::segment(2)=='assign_subject') active @endif" href="{{ url('admin/assign_subject/list') }}">
           <i class="fa-solid fa-book"></i>
           <span>Assign Subject</span>
+        </a>
+      </li><!-- End Admin Page Nav -->
+      <li class="nav-item">
+        <a class="nav-link collapsed @if (Request::segment(2)=='change_password') active @endif" href="{{ url('admin/change_password') }}">
+          <i class="fa-solid fa-book"></i>
+          <span>Change password</span>
         </a>
       </li><!-- End Admin Page Nav -->
       <li class="nav-item">
@@ -51,6 +63,12 @@
           <span>Dashboard</span>
         </a>
       </li><!-- End Dashboard Nav -->
+      <li class="nav-item">
+        <a class="nav-link collapsed @if (Request::segment(2)=='change_password') active @endif" href="{{ url('teacher/change_password') }}">
+          <i class="fa-solid fa-book"></i>
+          <span>Change password</span>
+        </a>
+      </li><!-- End Admin Page Nav -->
         
       <li class="nav-item">
         <a class="nav-link collapsed" href="pages-error-404.html">
@@ -70,6 +88,12 @@
         </a>
       </li><!-- End Dashboard Nav -->
       <li class="nav-item">
+        <a class="nav-link collapsed @if (Request::segment(2)=='change_password') active @endif" href="{{ url('student/change_password') }}">
+          <i class="fa-solid fa-book"></i>
+          <span>Change password</span>
+        </a>
+      </li><!-- End Admin Page Nav -->
+      <li class="nav-item">
         <a class="nav-link collapsed" href="pages-error-404.html">
           <i class="bi bi-dash-circle"></i>
           <span>Error 404</span>
@@ -86,6 +110,12 @@
           <span>Dashboard</span>
         </a>
       </li><!-- End Dashboard Nav -->
+      <li class="nav-item">
+        <a class="nav-link collapsed @if (Request::segment(2)=='change_password') active @endif" href="{{ url('parent/change_password') }}">
+          <i class="fa-solid fa-book"></i>
+          <span>Change password</span>
+        </a>
+      </li><!-- End Admin Page Nav -->
       <li class="nav-item">
         <a class="nav-link collapsed" href="pages-error-404.html">
           <i class="bi bi-dash-circle"></i>
