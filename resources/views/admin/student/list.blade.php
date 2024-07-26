@@ -22,6 +22,7 @@
                         <div class="">
                             <form class="d-flex ">
                             <input class="form-control me-2" value="{{ Request::get('name') }}" type="search" placeholder="Name" aria-label="Search" name="name">
+                            <input class="form-control me-2" value="{{ Request::get('last_name') }}" type="search" placeholder="Last Name" aria-label="Search" name="last_name">
                             <input class="form-control me-2" value="{{ Request::get('email') }}" type="search" placeholder="email" aria-label="Search" name="email">
                             <button class="btn btn-outline-success" type="submit">Search</button>
                             <a href="{{ url('admin/student/list/') }}" class="btn btn-primary" style="margin-left: 30px">Reset</a>
@@ -34,7 +35,9 @@
                         <thead>
                         <tr>
                             <th scope="col">#</th>
+                            <th scope="col">Profile pic</th>
                             <th scope="col">Name</th>
+                            <th scope="col">Last Name</th>
                             <th scope="col">Email</th>
                             <th scope="col">Create-at</th>
                             <th scope="col">Action</th>
@@ -44,7 +47,14 @@
                             @foreach ($getRecord as $value )
                             <tr>    
                                 <th>{{ $value->id }}</th>
+                                <th>
+                                  @if (!empty($value->getProfile()))
+                                    <img src="{{ $value->getProfile() }}" alt="" style="width: 50px; height: 50px; border-radius: 30px">
+                                    
+                                  @endif
+                                </th>
                                 <td>{{ $value->name }}</td>
+                                <td>{{ $value->last_name }}</td>
                                 <td>{{ $value->email }}</td>
                                 <td>{{ $value->created_at }}</td>    
                                 <td>

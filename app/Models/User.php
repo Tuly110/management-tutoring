@@ -70,6 +70,18 @@ class User extends Authenticatable
         $return = self::select('users.*')
         ->where('users.usertype','=',3)
         ->where('users.is_delete','=',0);
+        if(!empty(Request::get('name')))
+        {
+            $return = $return->where('users.name', 'like','%'.Request::get('name').'%');
+        }
+        if(!empty(Request::get('last_name')))
+        {
+            $return = $return->where('users.last_name', 'like','%'.Request::get('last_name').'%');
+        }
+        if(!empty(Request::get('email')))
+        {
+            $return = $return->where('users.email', 'like','%'.Request::get('email').'%');
+        }
         $return = $return ->orderBy('users.id', 'desc')
         // Phan trang
         ->paginate(2);
@@ -84,5 +96,15 @@ class User extends Authenticatable
     static public function getEmailSingle($email)
     {
         return User::where('email', '=', $email)->first();
+    }
+    // hien thi anh
+    public function getProfile()
+    {
+        if(!empty($this->profile_pic) && file_exists('upload/profile/'.$this->profile_pic))
+        {
+            return url('upload/profile/'.$this->profile_pic);
+        }else{
+            return "";
+        }
     }
 }
