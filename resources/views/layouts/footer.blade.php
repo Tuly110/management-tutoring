@@ -18,7 +18,7 @@
       </li><!-- End Admin Page Nav -->
       <li class="nav-item">
         <a class="nav-link collapsed @if (Request::segment(2)=='student') active @endif" href="{{ url('admin/student/list') }}">
-          <i class="fas fa-user"></i>
+          <i class="fa-solid fa-graduation-cap"></i>
           <span>Student</span>
         </a>
       </li><!-- End Admin Page Nav -->
@@ -42,7 +42,7 @@
       </li><!-- End Admin Page Nav -->
       <li class="nav-item">
         <a class="nav-link collapsed @if (Request::segment(2)=='change_password') active @endif" href="{{ url('admin/change_password') }}">
-          <i class="fa-solid fa-book"></i>
+          <i class="fa-solid fa-recycle"></i>
           <span>Change password</span>
         </a>
       </li><!-- End Admin Page Nav -->
