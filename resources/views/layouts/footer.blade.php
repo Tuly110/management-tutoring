@@ -23,6 +23,12 @@
         </a>
       </li><!-- End Admin Page Nav -->
       <li class="nav-item">
+        <a class="nav-link collapsed @if (Request::segment(2)=='parent') active @endif" href="{{ url('admin/parent/list') }}">
+          <i class="fa-solid fa-graduation-cap"></i>
+          <span>Parent</span>
+        </a>
+      </li><!-- End Admin Page Nav -->
+      <li class="nav-item">
         <a class="nav-link collapsed @if (Request::segment(2)=='class') active @endif" href="{{ url('admin/class/list') }}">
           <i class="fa-solid fa-school"></i>
           <span>Class</span>
