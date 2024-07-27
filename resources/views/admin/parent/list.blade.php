@@ -66,6 +66,7 @@
                                 <td>
                                     <a href="{{ url('admin/parent/edit/'.$value->id) }}" class="btn btn-primary btn-sm">Edit</a>
                                     <a href="{{ url('admin/parent/delete/'.$value->id) }}" class="btn btn-danger btn-sm">Delete</a>
+                                    <a href="{{ url('admin/parent/my_student/'.$value->id) }}" class="btn btn-success btn-sm">My student</a>
                                 </td>
                             </tr>
                             @endforeach 

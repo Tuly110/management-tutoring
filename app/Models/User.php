@@ -67,7 +67,8 @@ class User extends Authenticatable
     // GET STUDENT
     static public function getStudent()
     {
-        $return = self::select('users.*')
+        $return = self::select('users.*', 'parent.last_name as parent_last_name', 'parent.name as parent_name')
+        ->join('users as parent', 'parent.id', '=', 'users.parent_id', 'left')
         ->where('users.usertype','=',3)
         ->where('users.is_delete','=',0);
         if(!empty(Request::get('name')))
@@ -108,6 +109,51 @@ class User extends Authenticatable
         $return = $return ->orderBy('users.id', 'desc')
         // Phan trang
         ->paginate(2);
+    return $return;
+    }
+
+    // tim kiem sinh vien cho ba me
+    static public function getSearchStudent()
+    {
+        // dd(Request::all());
+        if(!empty(Request::get('student_id')) ||!empty(Request::get('name')) || !empty(Request::get('last_name')) || !empty(Request::get('email')) )
+        {
+            $return = self::select('users.*', 'parent.last_name as parent_name')
+            ->join('users as parent', 'parent.id', '=', 'users.parent_id', 'left')
+            ->where('users.usertype','=',3)
+            ->where('users.is_delete','=',0);
+            if(!empty(Request::get('student_id')))
+            {
+                $return = $return->where('users.id', '=' ,Request::get('student_id'));
+            }
+            if(!empty(Request::get('name')))
+            {
+                $return = $return->where('users.name', 'like','%'.Request::get('name').'%');
+            }
+            if(!empty(Request::get('last_name')))
+            {
+                $return = $return->where('users.last_name', 'like','%'.Request::get('last_name').'%');
+            }
+            if(!empty(Request::get('email')))
+            {
+                $return = $return->where('users.email', 'like','%'.Request::get('email').'%');
+            }
+            $return = $return ->orderBy('users.id', 'desc')
+            ->limit(10)
+            ->get();
+        return $return;
+        }
+    }
+
+    static public function getMyStudent($parent_id)
+    {
+        $return = self::select('users.*', 'parent.last_name as parent_name')
+        ->join('users as parent', 'parent.id', '=', 'users.parent_id', 'left')
+        ->where('users.usertype','=',3)
+        ->where('users.parent_id','=',$parent_id)
+        ->where('users.is_delete','=',0)
+        ->orderBy('users.id', 'desc')
+        ->get();
     return $return;
     }
 

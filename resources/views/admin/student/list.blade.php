@@ -39,6 +39,7 @@
                             <th scope="col">Name</th>
                             <th scope="col">Last Name</th>
                             <th scope="col">Email</th>
+                            <th scope="col">Parent Name</th>
                             <th scope="col">Create-at</th>
                             <th scope="col">Action</th>
                         </tr>
@@ -56,6 +57,7 @@
                                 <td>{{ $value->name }}</td>
                                 <td>{{ $value->last_name }}</td>
                                 <td>{{ $value->email }}</td>
+                                <td>{{ $value->parent_name }}{{ $value->parent_last_name }}</td>
                                 <td>{{ $value->created_at }}</td>    
                                 <td>
                                     <a href="{{ url('admin/student/edit/'.$value->id) }}" class="btn btn-primary">Edit</a>
