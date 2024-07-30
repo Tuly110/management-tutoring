@@ -17,6 +17,12 @@
         </a>
       </li><!-- End Admin Page Nav -->
       <li class="nav-item">
+        <a class="nav-link collapsed @if (Request::segment(2)=='teacher') active @endif" href="{{ url('admin/teacher/list') }}">
+          <i class="fa-solid fa-graduation-cap"></i>
+          <span>Teacher</span>
+        </a>
+      </li><!-- End Admin Page Nav -->
+      <li class="nav-item">
         <a class="nav-link collapsed @if (Request::segment(2)=='student') active @endif" href="{{ url('admin/student/list') }}">
           <i class="fa-solid fa-graduation-cap"></i>
           <span>Student</span>
@@ -70,6 +76,12 @@
         </a>
       </li><!-- End Dashboard Nav -->
       <li class="nav-item">
+        <a class="nav-link collapsed @if (Request::segment(2)=='account') active @endif" href="{{ url('teacher/account') }}">
+          <i class="fa-solid fa-book"></i>
+          <span>My account</span>
+        </a>
+      </li><!-- End Admin Page Nav -->
+      <li class="nav-item">
         <a class="nav-link collapsed @if (Request::segment(2)=='change_password') active @endif" href="{{ url('teacher/change_password') }}">
           <i class="fa-solid fa-book"></i>
           <span>Change password</span>
@@ -93,6 +105,12 @@
           <span>Dashboard</span>
         </a>
       </li><!-- End Dashboard Nav -->
+      <li class="nav-item">
+        <a class="nav-link collapsed @if (Request::segment(2)=='change_password') active @endif" href="{{ url('student/change_password') }}">
+          <i class="fa-solid fa-book"></i>
+          <span>My account</span>
+        </a>
+      </li><!-- End Admin Page Nav -->
       <li class="nav-item">
         <a class="nav-link collapsed @if (Request::segment(2)=='change_password') active @endif" href="{{ url('student/change_password') }}">
           <i class="fa-solid fa-book"></i>
