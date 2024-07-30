@@ -167,7 +167,14 @@
         <li class="nav-item dropdown pe-3">
 
           <a class="nav-link nav-profile d-flex align-items-center pe-0" href="#" data-bs-toggle="dropdown">
-            <img src="{{ url('public/assets/img/profile-img.jpg') }}" alt="Profile" class="rounded-circle">
+            {{-- <div class="col-6"> --}}
+              {{-- <label class="form-label">Profile pic<span style="color: red">*</span></label>
+              <input type="file" class="form-control" name="profile_pic" >
+              <div class="text-danger"><b>{{ $errors->first('profile_pic') }}</b></div> --}}
+              {{-- @if (!empty($getRecord->getProfile()))
+                <img src="{{ $getRecord->getProfile() }}" alt="" style="width: 50px; border-radius: 5px">
+              @endif --}}
+            {{-- </div> --}}
             <span class="d-none d-md-block dropdown-toggle ps-2">{{ Auth::user()->name }}</span>
           </a><!-- End Profile Iamge Icon -->
 

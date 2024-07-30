@@ -15,7 +15,7 @@ class DashboardController extends Controller
         }
         else if(Auth::user()->usertype ==2)
         {
-            return view('teacher.dashboard, $data');
+            return view('teacher.dashboard', $data);
         }
         else if(Auth::user()->usertype ==3)
         {

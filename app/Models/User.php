@@ -64,6 +64,30 @@ class User extends Authenticatable
         return $return;
     }
 
+    // GET TEACHER
+    static public function getTeacher()
+    {
+        $return = self::select('users.*')
+                    ->where('usertype','=',2)
+                    ->where('is_delete','=',0);
+        if(!empty(Request::get('name')))
+        {
+            $return = $return->where('users.name', 'like','%'.Request::get('name').'%');
+        }
+        if(!empty(Request::get('date_of_join')))
+        {
+            $return = $return->where('users.date_of_join', 'like','%'.Request::get('date_of_join').'%');
+        }
+        if(!empty(Request::get('email')))
+        {
+            $return = $return->where('users.email', 'like','%'.Request::get('email').'%');
+        }
+        $return = $return ->orderBy('id', 'desc')
+                    // Phan trang
+                    ->paginate(2);
+        return $return;
+    }
+
     // GET STUDENT
     static public function getStudent()
     {
