@@ -106,6 +106,12 @@
         </a>
       </li><!-- End Dashboard Nav -->
       <li class="nav-item">
+        <a class="nav-link collapsed @if (Request::segment(2)=='subject') active @endif" href="{{ url('student/my_subject') }}">
+          <i class="fa-solid fa-book"></i>
+          <span>My Subject</span>
+        </a>
+      </li><!-- End Admin Page Nav -->
+      <li class="nav-item">
         <a class="nav-link collapsed @if (Request::segment(2)=='account') active @endif" href="{{ url('student/account') }}">
           <i class="fa-solid fa-book"></i>
           <span>My account</span>
@@ -134,6 +140,12 @@
           <span>Dashboard</span>
         </a>
       </li><!-- End Dashboard Nav -->
+      <li class="nav-item">
+        <a class="nav-link collapsed @if (Request::segment(2)=='my_student') active @endif" href="{{ url('parent/my_student') }}">
+          <i class="fa-solid fa-book"></i>
+          <span>My student  </span>
+        </a>
+      </li><!-- End Admin Page Nav -->
       <li class="nav-item">
         <a class="nav-link collapsed @if (Request::segment(2)=='account') active @endif" href="{{ url('parent/account') }}">
           <i class="fa-solid fa-book"></i>
