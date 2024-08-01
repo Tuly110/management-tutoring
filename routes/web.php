@@ -116,13 +116,23 @@ Route::group(['middleware'=>'student'], function () {
 
     Route::get('student/change_password', [UserController::class, 'change_password']);
     Route::post('student/change_password', [UserController::class, 'update_change_password']);
+
+    Route::get('student/my_subject', [SubjectController::class, 'mySubject']);
+
 });
 
 Route::group(['middleware'=>'parent'], function () {
     Route::get('parent/dashboard', [DashboardController::class, 'dashboard']);
+
     Route::get('parent/account', [UserController::class, 'my_account']);
     Route::post('parent/account', [UserController::class, 'update_my_account_parent']);
 
     Route::get('parent/change_password', [UserController::class, 'change_password']);
     Route::post('parent/change_password', [UserController::class, 'update_change_password']);
+
+    Route::get('parent/my_student', [ParentController::class, 'myStudentParent']);
+
+    Route::get('parent/my_student_subject/{student_id}', [SubjectController::class, 'ParentStudentSubject']);
+
+
 });
