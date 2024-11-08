@@ -7,8 +7,7 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 use Laravel\Sanctum\HasApiTokens;
-// use Illuminate\Http\Client\Request;
-use Request;
+use Illuminate\Support\Facades\Request;
 
 
 class User extends Authenticatable
@@ -64,6 +63,18 @@ class User extends Authenticatable
         return $return;
     }
 
+
+    // GET TEACHER CLASS
+    static public function getTeacherClass()
+    {
+        $return = self::select('users.*')
+            ->where('usertype','=',2)
+            ->where('is_delete','=',0);
+        $return = $return->orderBy('users.id', 'desc')->get();
+
+        return $return;
+    }
+
     // GET TEACHER
     static public function getTeacher()
     {
@@ -86,6 +97,17 @@ class User extends Authenticatable
                     // Phan trang
                     ->paginate(2);
         return $return;
+    }
+
+    static function getAssignTeacher()
+    {
+        $return = User::where('is_delete', 0)
+            ->where('status', 0)
+            ->where('usertype', 2)
+            ->get();
+
+        return $return;
+
     }
 
     // GET STUDENT

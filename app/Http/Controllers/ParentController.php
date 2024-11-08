@@ -45,7 +45,7 @@ class ParentController extends Controller
             $filename = strtolower($randomStr).'.'.$ext;
             $file->move('upload/profile/',$filename);
             $parent->profile_pic =  $filename;
-        $parent->status= trim($request->status);
+            $parent->status= trim($request->status);
         }
         $parent->email = trim($request->email );
         $parent->password = Hash::make($request->password);

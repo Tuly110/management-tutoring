@@ -23,8 +23,7 @@ class ClassModel extends Model
     static public function getClass_assign()
     {
         $return = ClassModel::select('class.*')
-                    ->join('users', 'users.id', 'class.create_by')
-                    
+                    ->join('users', 'users.id', 'class.create_by')                 
                     ->where('class.is_delete','=',0)
                     ->where('class.status', '=',0 )
                     ->orderBy('class.name', 'asc')

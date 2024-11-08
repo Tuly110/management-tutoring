@@ -33,16 +33,16 @@
                   <!-- Dark Table -->
                     <table class="table ">
                         <thead>
-                        <tr>
-                            <th scope="col">#</th>
-                            <th scope="col">Profile pic</th>
-                            <th scope="col">Name</th>
-                            <th scope="col">Last Name</th>
-                            <th scope="col">Email</th>
-                            <th scope="col">Parent Name</th>
-                            <th scope="col">Create-at</th>
-                            <th scope="col">Action</th>
-                        </tr>
+                          <tr>
+                              <th scope="col">#</th>
+                              <th scope="col">Profile pic</th>
+                              <th scope="col">Name</th>
+                              <th scope="col">Last Name</th>
+                              <th scope="col">Email</th>
+                              <th scope="col">Parent Name</th>
+                              <th scope="col">Create-at</th>
+                              <th scope="col">Action</th>
+                          </tr>
                         </thead>
                         <tbody>
                             @foreach ($getRecord as $value )
