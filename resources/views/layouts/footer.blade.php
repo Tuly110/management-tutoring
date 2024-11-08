@@ -53,6 +53,12 @@
         </a>
       </li><!-- End Admin Page Nav -->
       <li class="nav-item">
+        <a class="nav-link collapsed @if (Request::segment(2)=='assign_class_teacher') active @endif" href="{{ url('admin/assign_class_teacher/list') }}">
+          <i class="fa-solid fa-book"></i>
+          <span>Assign Class Teacher</span>
+        </a>
+      </li><!-- End Admin Page Nav -->
+      <li class="nav-item">
         <a class="nav-link collapsed @if (Request::segment(2)=='change_password') active @endif" href="{{ url('admin/change_password') }}">
           <i class="fa-solid fa-recycle"></i>
           <span>Change password</span>

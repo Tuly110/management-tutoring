@@ -2,7 +2,7 @@
 
 namespace App\Models;
 
-use Request;
+use Illuminate\Support\Facades\Request;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
@@ -58,7 +58,8 @@ class ClassSubjectModel extends Model
     }
     static public function getAssignSubjectID($class_id)
     {
-        return self::where('class_id', '=', $class_id)->where ('is_delete', '=', 0)->get();
+        return self::where('class_id', '=', $class_id)
+        ->where ('is_delete', '=', 0)->get();
     } 
     static public function deleteSubject($class_id)
     {
