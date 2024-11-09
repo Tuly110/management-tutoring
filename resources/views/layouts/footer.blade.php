@@ -82,6 +82,12 @@
         </a>
       </li><!-- End Dashboard Nav -->
       <li class="nav-item">
+        <a class="nav-link collapsed @if (Request::segment(2)=='class_and_subject') active @endif" href="{{ url('teacher/class_and_subject') }}">
+          <i class="bi bi-grid"></i>
+          <span>My class and subject</span>
+        </a>
+      </li><!-- End Dashboard Nav -->
+      <li class="nav-item">
         <a class="nav-link collapsed @if (Request::segment(2)=='account') active @endif" href="{{ url('teacher/account') }}">
           <i class="fa-solid fa-book"></i>
           <span>My account</span>

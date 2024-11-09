@@ -43,6 +43,30 @@ class AssignClassTeacherModel extends Model
         return $return;
     }
 
+    static public function getMyClassSubject($teacher_id)
+    {
+        return AssignClassTeacherModel::select(
+            'assign_class_teacher.*', 
+            'users.name as created_by_name',
+            'class.name as class_id_name',
+            'class_subject.subject_id',
+            'subject.name as subject_name',
+            'subject.type as subject_type',
+        )
+        ->join('users', 'users.id', '=', 'assign_class_teacher.created_by')
+        ->join('class', 'class.id', '=', 'assign_class_teacher.class_id')
+        ->join('class_subject', 'class_subject.class_id', '=', 'assign_class_teacher.class_id')
+        ->join('subject', 'subject.id', '=', 'class_subject.subject_id')
+        ->where('assign_class_teacher.is_deleted', 0)
+        ->where('assign_class_teacher.status', 0)
+        ->where('class.is_delete', 0)
+        ->where('class.status', 0)
+        ->where('subject.is_delete', 0)
+        ->where('subject.status', 0)
+        ->where('assign_class_teacher.teacher_id','=',$teacher_id )
+        ->get();
+    }
+
     static public function getSingle($id)
     {
         return self::find($id);
