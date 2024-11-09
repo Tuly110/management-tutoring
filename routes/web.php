@@ -112,11 +112,14 @@ Route::group(['middleware'=>'admin'], function () {
     Route::post('admin/change_password', [UserController::class, 'update_change_password']);
 });
 
+//TEACHER
+
 Route::group(['middleware'=>'teacher'], function () {
     Route::get('teacher/dashboard', [DashboardController::class, 'dashboard']);
     Route::get('teacher/account', [UserController::class, 'my_account']);
     Route::post('teacher/account', [UserController::class, 'update_my_account']);
 
+    Route::get('teacher/class_and_subject', [AssignClassTeacherController::class, 'class_and_subject']);
 
     Route::get('teacher/change_password', [UserController::class, 'change_password']);
     Route::post('teacher/change_password', [UserController::class, 'update_change_password']);

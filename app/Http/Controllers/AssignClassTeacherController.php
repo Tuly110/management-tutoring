@@ -107,6 +107,15 @@ use Illuminate\Support\Facades\Auth;
             $delete->save();
             return redirect('admin/assign_class_teacher/list')->with('success', "Deleted assign class teacher successfully");
         }
+
+        //TEACHER SIDE  WORK
+        public function class_and_subject()
+        {
+            $data['header_title'] = "My Class and Subject";
+             // Auth::user()->id Lấy từ người dùng hiện tại
+            $data['getRecord']=AssignClassTeacherModel::getMyClassSubject(Auth::user()->id);
+            return view('teacher.class_and_subject', $data);
+        }
     }
 ?>
 
