@@ -19,26 +19,27 @@
                     <label for="inputNanme4" class="form-label">Class Name</label>
                     <select class="form-control" name="class_id" >
                         <option value="0">Select class</option>
-                        @foreach ($getClass_assign as $class )
+                        @foreach ($getClass as $class )
                             <option {{($getRecord->class_id==$class->id) ? 'selected' : ''}} value="{{ $class->id }}">{{ $class->name }}</option>
                         @endforeach    
                     </select>
                 </div>
                 <div class="col-12">
                     <label for="inputNanme4" class="form-label p-2">Teacher Name</label>
-                      @foreach ($getAssignTeacher as $teacher)
+                      @foreach ($getTeacher as $teacher)
                         @php
                             $checked="";
                         @endphp
-                        @foreach ($getAssignClassTeacherID as $AssignClassTeacher)
-                          @if ($AssignClassTeacher->teacher_id == $teacher->id)
+                        @foreach ($getAssignClassTeacherID as $teacherID)
+                          @if ($teacherID->teacher_id == $teacher->id)
                             @php
                               $checked="checked";
                             @endphp
                           @endif
                         @endforeach
                           <div>
-                              <input {{ $checked }} type="checkbox" value="{{ $teacher->id }}" name="subject_id[]">{{ $teacher->name }}</input> 
+                              <input {{ $checked }} type="checkbox" value="{{ $teacher->id }}" name="teacher_id[]">
+                              {{ $teacher->name }}</input> 
                           </div>
                       @endforeach    
                 </div>
@@ -50,7 +51,7 @@
                   </select>
               </div>
                 <div class="text-center">
-                  <button type="submit" class="btn btn-primary" name="add" >Update</button>
+                  <button type="submit" class="btn btn-primary"  >Update</button>
                 </div>
               </form><!-- Vertical Form -->
 

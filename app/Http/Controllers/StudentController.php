@@ -158,4 +158,11 @@ class StudentController extends Controller
         }
          
     }
+
+    public function teacher_student()
+    {
+        $data['getRecord'] = User::getStudentTeacher(Auth::user()->id);
+        $data['header_title'] = "My student List";
+        return view('teacher.teacher_student', $data);
+    }
 }

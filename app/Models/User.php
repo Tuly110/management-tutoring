@@ -134,6 +134,19 @@ class User extends Authenticatable
         ->paginate(2);
     return $return;
     }
+
+    static public function getStudentTeacher($teacher_id)
+    {
+        $return = self::select('users')
+        ->select('users.*', 'class.name as class_name')
+        ->join('class', 'class.id', '=', 'users.class_id')
+        ->join('assign_class_teacher', 'assign_class_teacher.class_id', '=', 'class.id')
+        ->where('users.usertype', '=', 3)
+        ->where('users.is_delete', '=', 0)
+        ->where('assign_class_teacher.teacher_id', '=', $teacher_id)
+        ->get();
+        return $return;
+    }
     
     static public function getParent()
     {

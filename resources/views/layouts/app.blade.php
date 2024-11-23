@@ -45,8 +45,9 @@
   <script src="{{ url('public/assets/vendor/php-email-form/validate.js') }}"></script>
 
   <!-- Template Main JS File -->
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
   <script src="{{ url('public/assets/js/main.js') }}"></script>
-  $@yield('script');
+  @yield('script');
 
 </body>
 
