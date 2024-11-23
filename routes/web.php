@@ -130,6 +130,7 @@ Route::group(['middleware'=>'teacher'], function () {
     Route::post('teacher/change_password', [UserController::class, 'update_change_password']);
 });
 
+// STUDENT
 Route::group(['middleware'=>'student'], function () {
     Route::get('student/dashboard', [DashboardController::class, 'dashboard']);
     Route::get('student/account', [UserController::class, 'my_account']);
@@ -139,9 +140,11 @@ Route::group(['middleware'=>'student'], function () {
     Route::post('student/change_password', [UserController::class, 'update_change_password']);
 
     Route::get('student/my_subject', [SubjectController::class, 'mySubject']);
+    Route::get('student/my_timetable', [ClassTimetableController::class, 'myTimetable']);
 
 });
 
+// PARENT
 Route::group(['middleware'=>'parent'], function () {
     Route::get('parent/dashboard', [DashboardController::class, 'dashboard']);
 

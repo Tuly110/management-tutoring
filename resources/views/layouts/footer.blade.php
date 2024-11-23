@@ -142,6 +142,12 @@
         </a>
       </li><!-- End Admin Page Nav -->
       <li class="nav-item">
+        <a class="nav-link collapsed @if (Request::segment(2)=='timetable') active @endif" href="{{ url('student/my_timetable') }}">
+          <i class="fa-solid fa-book"></i>
+          <span>My Timetable</span>
+        </a>
+      </li><!-- End Admin Page Nav -->
+      <li class="nav-item">
         <a class="nav-link collapsed @if (Request::segment(2)=='account') active @endif" href="{{ url('student/account') }}">
           <i class="fa-solid fa-book"></i>
           <span>My account</span>
