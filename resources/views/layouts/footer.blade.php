@@ -35,29 +35,43 @@
         </a>
       </li><!-- End Admin Page Nav -->
       <li class="nav-item">
-        <a class="nav-link collapsed @if (Request::segment(2)=='class') active @endif" href="{{ url('admin/class/list') }}">
-          <i class="fa-solid fa-school"></i>
-          <span>Class</span>
+        <a class="nav-link collapsed" data-bs-target="#forms-nav" data-bs-toggle="collapse" href="#">
+          <i class="bi bi-journal-text"></i><span>Academic</span><i class="bi bi-chevron-down ms-auto"></i>
         </a>
-      </li><!-- End Admin Page Nav -->
-      <li class="nav-item">
-        <a class="nav-link collapsed @if (Request::segment(2)=='subject') active @endif" href="{{ url('admin/subject/list') }}">
-          <i class="fa-solid fa-book"></i>
-          <span>Subject</span>
-        </a>
-      </li><!-- End Admin Page Nav -->
-      <li class="nav-item">
-        <a class="nav-link collapsed @if (Request::segment(2)=='assign_subject') active @endif" href="{{ url('admin/assign_subject/list') }}">
-          <i class="fa-solid fa-book"></i>
-          <span>Assign Subject</span>
-        </a>
-      </li><!-- End Admin Page Nav -->
-      <li class="nav-item">
-        <a class="nav-link collapsed @if (Request::segment(2)=='assign_class_teacher') active @endif" href="{{ url('admin/assign_class_teacher/list') }}">
-          <i class="fa-solid fa-book"></i>
-          <span>Assign Class Teacher</span>
-        </a>
-      </li><!-- End Admin Page Nav -->
+        <ul id="forms-nav" class="nav-content collapse " data-bs-parent="#sidebar-nav">
+          <li class="nav-item">
+            <a class="nav-link collapsed @if (Request::segment(2)=='class') active @endif" href="{{ url('admin/class/list') }}">
+              <i class="fa-solid fa-school"></i>
+              <span>Class</span>
+            </a>
+          </li><!-- End Admin Page Nav -->
+          <li class="nav-item">
+            <a class="nav-link collapsed @if (Request::segment(2)=='subject') active @endif" href="{{ url('admin/subject/list') }}">
+              <i class="fa-solid fa-book"></i>
+              <span>Subject</span>
+            </a>
+          </li><!-- End Admin Page Nav -->
+          <li class="nav-item">
+            <a class="nav-link collapsed @if (Request::segment(2)=='assign_subject') active @endif" href="{{ url('admin/assign_subject/list') }}">
+              <i class="fa-solid fa-book"></i>
+              <span>Assign Subject</span>
+            </a>
+          </li><!-- End Admin Page Nav -->
+          <li class="nav-item">
+            <a class="nav-link collapsed @if (Request::segment(2)=='assign_class_teacher') active @endif" href="{{ url('admin/assign_class_teacher/list') }}">
+              <i class="fa-solid fa-book"></i>
+              <span>Assign Class Teacher</span>
+            </a>
+          </li><!-- End Admin Page Nav -->
+          <li class="nav-item">
+            <a class="nav-link collapsed @if (Request::segment(2)=='class_timetable') active @endif" href="{{ url('admin/class_timetable/list') }}">
+              <i class="fa-solid fa-book"></i>
+              <span>Class timetable</span>
+            </a>
+          </li><!-- End Admin Page Nav -->
+        </ul>
+      </li><!-- End Forms Nav -->
+      
       <li class="nav-item">
         <a class="nav-link collapsed @if (Request::segment(2)=='change_password') active @endif" href="{{ url('admin/change_password') }}">
           <i class="fa-solid fa-recycle"></i>
@@ -70,7 +84,7 @@
           <span>Error 404</span>
         </a>
       </li><!-- End Error 404 Page Nav -->
-
+     
 
     </ul>
     @elseif (Auth::user()->usertype==2)
@@ -85,6 +99,12 @@
         <a class="nav-link collapsed @if (Request::segment(2)=='class_and_subject') active @endif" href="{{ url('teacher/class_and_subject') }}">
           <i class="bi bi-grid"></i>
           <span>My class and subject</span>
+        </a>
+      </li><!-- End Dashboard Nav -->
+      <li class="nav-item">
+        <a class="nav-link collapsed @if (Request::segment(2)=='teacher_student') active @endif" href="{{ url('teacher/teacher_student') }}">
+          <i class="bi bi-grid"></i>
+          <span>My student</span>
         </a>
       </li><!-- End Dashboard Nav -->
       <li class="nav-item">
@@ -106,8 +126,6 @@
           <span>Error 404</span>
         </a>
       </li><!-- End Error 404 Page Nav -->
-
-
     </ul>
     @elseif (Auth::user()->usertype==3)
     <ul class="sidebar-nav" id="sidebar-nav">
@@ -176,12 +194,9 @@
           <span>Error 404</span>
         </a>
       </li><!-- End Error 404 Page Nav -->
-
-
     </ul>
     @endif
     
-
   </aside><!-- End Sidebar--><!-- ======= Footer ======= -->
   <footer id="footer" class="footer">
     <div class="copyright">

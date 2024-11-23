@@ -12,6 +12,7 @@ use App\Http\Controllers\StudentController;
 use App\Http\Controllers\ParentController;
 use App\Http\Controllers\TeacherController;
 use App\Http\Controllers\AssignClassTeacherController;
+use App\Http\Controllers\ClassTimetableController;
 
 /*
 |--------------------------------------------------------------------------
@@ -105,7 +106,10 @@ Route::group(['middleware'=>'admin'], function () {
     Route::post('admin/assign_class_teacher/edit/{id}', [AssignClassTeacherController::class, 'update']);
     Route::get('admin/assign_class_teacher/delete/{id}', [AssignClassTeacherController::class, 'delete']);
 
-
+    //timeTable
+    Route::get('admin/class_timetable/list', [ClassTimetableController::class, 'list']); 
+    Route::post('admin/class_timetable/get_subject', [ClassTimetableController::class, 'get_subject']); 
+    Route::post('admin/class_timetable/add', [ClassTimetableController::class, 'insert_update']); 
 
     // Password url
     Route::get('admin/change_password', [UserController::class, 'change_password']);
@@ -120,6 +124,7 @@ Route::group(['middleware'=>'teacher'], function () {
     Route::post('teacher/account', [UserController::class, 'update_my_account']);
 
     Route::get('teacher/class_and_subject', [AssignClassTeacherController::class, 'class_and_subject']);
+    Route::get('teacher/teacher_student', [StudentController::class, 'teacher_student']);
 
     Route::get('teacher/change_password', [UserController::class, 'change_password']);
     Route::post('teacher/change_password', [UserController::class, 'update_change_password']);

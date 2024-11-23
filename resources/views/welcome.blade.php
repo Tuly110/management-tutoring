@@ -10,12 +10,12 @@
   <meta content="" name="keywords">
 
   <!-- Favicons -->
-  <link href="{{url('public/assets/img/favicon.png')}}" rel="icon">
   <link href="{{url('public/assets/img/apple-touch-icon.png')}}" rel="apple-touch-icon">
 
   <!-- Google Fonts -->
   <link href="https://fonts.gstatic.com" rel="preconnect">
   <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Nunito:300,300i,400,400i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i" rel="stylesheet">
+  
 
   <!-- Vendor CSS Files -->
   <link href="{{url('public/assets/vendor/bootstrap/css/bootstrap.min.css')}}" rel="stylesheet">
@@ -30,6 +30,8 @@
   <!-- Template Main CSS File -->
   <link href="assets/css/style.css" rel="stylesheet">
 
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+  
   <!-- =======================================================
   * Template Name: NiceAdmin
   * Updated: Sep 18 2023 with Bootstrap v5.3.2
@@ -127,9 +129,10 @@
    <script src="{{url('public/assets/vendor/simple-datatables/simple-datatables.js')}}"></script>
    <script src="{{url('public/assets/vendor/tinymce/tinymce.min.js')}}"></script>
    <script src="{{url('public/assets/vendor/php-email-form/validate.js')}}"></script>
-
+   {{-- <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script> --}}
   <!-- Template Main JS File -->
-   <script src="{{url('public/assets/js/main.js')}}"></script>
+  
+  {{-- <script src="{{url('public/assets/js/main.js')}}"></script> --}}
 
 </body>
 
