@@ -125,6 +125,7 @@ Route::group(['middleware'=>'teacher'], function () {
 
     Route::get('teacher/class_and_subject', [AssignClassTeacherController::class, 'class_and_subject']);
     Route::get('teacher/teacher_student', [StudentController::class, 'teacher_student']);
+    Route::get('teacher/class_and_subject/class_timetable_teacher/{class_id}/{subject_id}', [ClassTimetableController::class, 'class_timetable_teacher']);
 
     Route::get('teacher/change_password', [UserController::class, 'change_password']);
     Route::post('teacher/change_password', [UserController::class, 'update_change_password']);
