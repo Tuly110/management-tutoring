@@ -13,6 +13,7 @@ use App\Http\Controllers\ParentController;
 use App\Http\Controllers\TeacherController;
 use App\Http\Controllers\AssignClassTeacherController;
 use App\Http\Controllers\ClassTimetableController;
+use App\Http\Controllers\ExaminationsController;
 
 /*
 |--------------------------------------------------------------------------
@@ -106,6 +107,9 @@ Route::group(['middleware'=>'admin'], function () {
     Route::post('admin/assign_class_teacher/edit/{id}', [AssignClassTeacherController::class, 'update']);
     Route::get('admin/assign_class_teacher/delete/{id}', [AssignClassTeacherController::class, 'delete']);
 
+    // Examinations
+    Route::get('admin/examinations/exam/list', [ExaminationsController::class, 'exam_list']);
+
     //timeTable
     Route::get('admin/class_timetable/list', [ClassTimetableController::class, 'list']); 
     Route::post('admin/class_timetable/get_subject', [ClassTimetableController::class, 'get_subject']); 
@@ -158,6 +162,7 @@ Route::group(['middleware'=>'parent'], function () {
     Route::get('parent/my_student', [ParentController::class, 'myStudentParent']);
 
     Route::get('parent/my_student_subject/{student_id}', [SubjectController::class, 'ParentStudentSubject']);
-
+    Route::get('parent/my_student_subject/class_timetable_parent/{class_id}/{subject_id}/{student_id}', [ClassTimetableController::class, 'class_timetable_parent']);
+    // Route::get('teacher/class_and_subject/class_timetable_teacher/{class_id}/{subject_id}', [ClassTimetableController::class, 'class_timetable_teacher']);
 
 });

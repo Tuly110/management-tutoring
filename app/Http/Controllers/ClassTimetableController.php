@@ -9,6 +9,7 @@ use App\Models\weekModel;
 use Illuminate\Support\Facades\Auth;
 use App\Models\ClassSubjectTimetableModel;
 use App\Models\SubjectModel;
+use App\Models\User;
 
 class ClassTimetableController extends Controller
 {
@@ -167,5 +168,42 @@ class ClassTimetableController extends Controller
         return view('teacher.class_timetable_teacher', $data);
     }
 
+     // parent side
+     public function class_timetable_parent($class_id, $subject_id, $student_id)
+     {
+         $data['getClass']= ClassModel::getSingle($class_id);
+         $data['getSubject']= SubjectModel::getSingle($subject_id);
+         $data['getStudent']= User::getSingle($student_id);
+
+         $getWeek = weekModel::getRecord();
+         $week= array();
+         foreach($getWeek as $valueW)
+         {
+             $dataW= array();
+             $dataW['week_name'] = $valueW->name;
+             $ClassSubject= ClassSubjectTimetableModel::getRecordSubjectTimetable
+             ($class_id,$subject_id, $valueW->id);
+             if(!empty($ClassSubject))
+             {
+                 $dataW['start_time'] = $ClassSubject->start_time;
+                 $dataW['end_time'] = $ClassSubject->end_time;
+                 $dataW['room_number'] = $ClassSubject->room_number;
+             }else{
+                 $dataW['start_time'] = '';
+                 $dataW['end_time'] = '';
+                 $dataW['room_number'] = '';
+             }
+             // $dataW['week_name'] = $valueW->name;
+             // $week[]= $dataW;
+             $result[]=$dataW;
+         }
+         $data['getRecord']= $result;
+         // dd($result);
+         $data['header_title'] = "My Timetable";
+         // $data['getRecord']=AssignClassTeacherModel::getAssignClassTeacher(); 
+         return view('parent.class_timetable_parent', $data);
+        //  return view('teacher.class_timetable_teacher', $data);
+     }
+ 
 
 }

@@ -25,7 +25,6 @@
                             <th scope="col"">Create at</th>
                             <th scope="col"">Create by</th>
                             <th scope="col"">Action</th>
-                            
                         </tr>
                         </thead>
                         <tbody>
@@ -52,7 +51,8 @@
                                 <td>{{ $value->created_at }}</td>    
                                 <td>{{ $value->created_by_name }}</td>
                                 <td>
-                                  <a href="{{ url('teacher/class_and_subject/class_timetable_teacher/'.$value->class_id.'/'.$value->subject_id) }}" class="btn btn-primary">My class timetable</a>
+                                  <a href="{{ url('teacher/class_and_subject/class_timetable_teacher/'.$value->class_id.'/'.$value->subject_id) }}" class="btn btn-primary">
+                                    My class timetable</a>
                                 </td>
                             </tr>
                             @endforeach 
