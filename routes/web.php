@@ -109,6 +109,12 @@ Route::group(['middleware'=>'admin'], function () {
 
     // Examinations
     Route::get('admin/examinations/exam/list', [ExaminationsController::class, 'exam_list']);
+    Route::get('admin/examinations/exam/add', [ExaminationsController::class, 'exam_add']);
+    Route::post('admin/examinations/exam/add', [ExaminationsController::class, 'exam_insert']);
+    Route::get('admin/examinations/exam/edit/{id}', [ExaminationsController::class, 'exam_edit']);
+    Route::post('admin/examinations/exam/edit/{id}', [ExaminationsController::class, 'exam_update']);
+    Route::get('admin/examinations/exam/delete/{id}', [ExaminationsController::class, 'exam_delete']);
+
 
     //timeTable
     Route::get('admin/class_timetable/list', [ClassTimetableController::class, 'list']); 

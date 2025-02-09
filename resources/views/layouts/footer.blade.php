@@ -86,7 +86,7 @@
           <li class="nav-item">
             <a class="nav-link collapsed @if (Request::segment(2)=='subject') active @endif" href="{{ url('admin/subject/list') }}">
               <i class="fa-solid fa-book"></i>
-              <span>Subject</span>
+              <span>Exam schedule</span>
             </a>
           </li>
         </ul>

@@ -7,7 +7,7 @@
         <h1>Data Tables</h1>    
       </div><!-- End Page Title -->
       <div class="ms-auto p-2 bd-highlight" style="text-align: right">
-        <a href="{{ url('admin/admin/add') }}" class="btn btn-primary">Add new Exam</a>
+        <a href="{{ url('admin/examinations/exam/add') }}" class="btn btn-primary">Add new Exam</a>
       </div> 
     </div>
     
@@ -19,12 +19,23 @@
             <div class="card-body">
               <h5 class="card-title">Exam list</h5>
               <!-- Table with stripped rows -->
+              <h5 class="card-title">Exam Search</h5>
+                <nav class="navbar navbar-light bg-light ">
+                    <div class="">
+                        <form class="d-flex " method="GET">
+                        <input class="form-control me-2" value="{{ Request::get('name') }}" type="search" placeholder="Name" aria-label="Search" name="name">
+                        <input type="date" name="date" id="" value="{{ Request::get('date') }}" placeholder="Date">
+                        <button class="btn btn-outline-success" type="submit">Search</button>
+                        <a href="{{ url('admin/examinations/exam/list/') }}" class="btn btn-primary" style="margin-left: 30px">Reset</a>
+                        </form>
+                    </div>
+                </nav>
+              <h5 class="card-title">Exam List (Total: {{ $getRecord->total() }})</h5>
               <table class="table datatable">
                 <thead>
                   <tr>
                     <th scope="col">#</th>
                     <th scope="col">Exam name</th>
-                    <th scope="col">User name</th>
                     <th scope="col">Note</th>
                     <th scope="col">Create-by</th>
                     <th scope="col">Create-at</th>
@@ -36,9 +47,8 @@
                   <tr>    
                       <th>{{ $value->id }}</th>
                       <td>{{ $value->name }}</td>
-                      <td>{{ $value->created_name }}</td>
                       <td>{{ $value->note }}</td>
-                      <td>{{ $value->created_by }}</td>    
+                      <td>{{ $value->created_name }}</td>
                       <td>{{ $value->created_at }}</td>    
                       <td>
                         <a href="{{ url('admin/examinations/exam/edit/'.$value->id) }}" class="btn btn-primary">Edit</a>
