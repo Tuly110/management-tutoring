@@ -34,11 +34,11 @@
           <span>Parent</span>
         </a>
       </li><!-- End Admin Page Nav -->
-      <li class="nav-item">
-        <a class="nav-link collapsed" data-bs-target="#forms-nav" data-bs-toggle="collapse" href="#">
+      <li class="nav-item menu-is-opening menu-open">
+        <a class="nav-link collapsed" data-bs-target="#academic-nav" data-bs-toggle="collapse" href="#">
           <i class="bi bi-journal-text"></i><span>Academic</span><i class="bi bi-chevron-down ms-auto"></i>
         </a>
-        <ul id="forms-nav" class="nav-content collapse " data-bs-parent="#sidebar-nav">
+        <ul id="academic-nav" class="nav-content collapse" data-bs-parent="#sidebar-nav">
           <li class="nav-item">
             <a class="nav-link collapsed @if (Request::segment(2)=='class') active @endif" href="{{ url('admin/class/list') }}">
               <i class="fa-solid fa-school"></i>
@@ -70,7 +70,28 @@
             </a>
           </li><!-- End Admin Page Nav -->
         </ul>
-      </li><!-- End Forms Nav -->
+    </li>
+    
+    <li class="nav-item @if (Request::segment(2)=='examinations') menu-is-opening menu-open @endif">
+        <a class="nav-link collapsed" data-bs-target="#examinations-nav" data-bs-toggle="collapse" href="#">
+          <i class="bi bi-journal-text"></i><span>Examinations</span><i class="bi bi-chevron-down ms-auto"></i>
+        </a>
+        <ul id="examinations-nav" class="nav-content collapse" data-bs-parent="#sidebar-nav">
+          <li class="nav-item">
+            <a class="nav-link collapsed @if (Request::segment(3)=='class') active @endif" href="{{ url('admin/examinations/exam/list') }}">
+              <i class="fa-solid fa-school"></i>
+              <span>Exam List</span>
+            </a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link collapsed @if (Request::segment(2)=='subject') active @endif" href="{{ url('admin/subject/list') }}">
+              <i class="fa-solid fa-book"></i>
+              <span>Subject</span>
+            </a>
+          </li>
+        </ul>
+    </li>
+    
       
       <li class="nav-item">
         <a class="nav-link collapsed @if (Request::segment(2)=='change_password') active @endif" href="{{ url('admin/change_password') }}">

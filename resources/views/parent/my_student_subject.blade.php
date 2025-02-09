@@ -22,6 +22,7 @@
                   <tr>
                     <th scope="col">Subject Name</th>
                     <th scope="col">Subject Type</th>
+                    <th scope="col">Action</th>
                   </tr>
                 </thead>
                 <tbody>
@@ -34,6 +35,11 @@
                       @else
                         Practical
                       @endif
+                      </td>
+                      <td>
+                        <a href="{{ url('parent/my_student_subject/class_timetable_parent/'.$value->class_id.'/'.$value->subject_id.'/'.$getUser->id) }}" 
+                          class="btn btn-primary">
+                          My class timetable</a> 
                       </td>
                   </tr>
                   @endforeach 
